@@ -84,7 +84,7 @@ def _parse_args(argv):
     # Copy needed settings
     args.srcdir = Path(sphinx_args.sourcedir).resolve(strict=True)
     args.outdir = Path(sphinx_args.outputdir).resolve()
-    args.outdir.mkdir(exist_ok=True)  # ensure outdir exists
+    args.outdir.mkdir(exist_ok=True, parents=True)  # ensure outdir exists
     args.confdir = Path(sphinx_args.confdir).resolve() if sphinx_args.confdir else None
     args.doctreedir = (
         Path(sphinx_args.doctreedir).resolve() if sphinx_args.doctreedir else None
