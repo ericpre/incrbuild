@@ -136,7 +136,7 @@ def restore_theme_files_mtime(theme: str):
     """
     info(f'Current theme: {theme}')
 
-    HTML_FILE_MTIME = datetime(1900, 1, 1)
+    HTML_FILE_MTIME = datetime(2000, 1, 1)
 
     # Find all HTML files of theme and its dependencies.
     # For example: sphinx_book_theme depends on pydata-sphinx-theme.
@@ -163,7 +163,7 @@ def restore_theme_files_mtime(theme: str):
         try:
             os.utime(
                 html_file,
-                (time.time(), HTML_FILE_MTIME.timestamp()),
+                times=(time.time(), HTML_FILE_MTIME.timestamp()),
                 follow_symlinks=True,
             )
         except PermissionError as e:
